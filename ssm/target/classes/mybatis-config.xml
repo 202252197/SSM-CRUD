@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	 <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+   
+    <!-- 
+        类型别名只是Java类型的别名，它可以有效减少Xml配置文件中映射查询语句里
+        返回类型(resultType)为自定义实体类的完全限定名冗余 
+    -->
+   <typeAliases>
+		<package name="com.lvshihao.entity"/>
+	</typeAliases>
+	<plugins>
+		<!-- 配置pagehelper分页插件 -->
+    	<plugin interceptor="com.github.pagehelper.PageInterceptor">
+    		<!-- 如果点击的页码《=0默认显示第一页,或者大于您的页码》=n,则显示最后一页,默认关闭,true开启 -->
+    		<property name="reasonable" value="true"/>
+    	</plugin>
+    </plugins>
+</configuration>
